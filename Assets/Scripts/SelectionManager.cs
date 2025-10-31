@@ -18,7 +18,14 @@ public class SelectionManager : MonoBehaviour
  
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
+
+        // cast ray to mouse pos
+        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        // cast ray to screen center
+        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
@@ -34,6 +41,11 @@ public class SelectionManager : MonoBehaviour
                 interaction_Info_UI.SetActive(false);
             }
  
+        }
+        else
+        {
+            // clear ui if ray hits nothing
+            interaction_Info_UI.SetActive(false);
         }
     }
 }
