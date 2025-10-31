@@ -20,9 +20,6 @@ public class SelectionManager : MonoBehaviour
     {
         Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
 
-        // cast ray to mouse pos
-        // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
         // cast ray to screen center
         Ray ray = Camera.main.ScreenPointToRay(screenCenter);
 
