@@ -10,11 +10,13 @@ public class SelectionManager : MonoBehaviour
  
     public GameObject interaction_Info_UI;
     TextMeshProUGUI interaction_text;
+    CanvasGroup canvasGroup;
  
     private void Start()
     {
         interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
-    }
+        interaction_text.text = "";
+    }  
  
     void Update()
     {
@@ -31,18 +33,16 @@ public class SelectionManager : MonoBehaviour
             if (selectionTransform.GetComponent<InteractableObject>())
             {
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
-                interaction_Info_UI.SetActive(true);
             }
-            else 
-            { 
-                interaction_Info_UI.SetActive(false);
+            else
+            {
+                interaction_text.text = "";
             }
  
         }
         else
         {
-            // clear ui if ray hits nothing
-            interaction_Info_UI.SetActive(false);
+            interaction_text.text = "";
         }
     }
 }
