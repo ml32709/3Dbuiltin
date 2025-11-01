@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 23634741171523664}
   - component: {fileID: 136670558102928648}
   - component: {fileID: 5089490247488376237}
+  - component: {fileID: 4952064367062900991}
   m_Layer: 0
-  m_Name: Willow_tree1
+  m_Name: Willow_tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1274954305527900}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 33.14608, y: 0.35624504, z: 30.752499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -124,4 +125,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaea81ab7aa60819c9e0d4e0c5382b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
   ItemName: Tree
+--- !u!135 &4952064367062900991
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274954305527900}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 7
+  m_Center: {x: -0.5728512, y: 5.351944, z: -0.0395422}

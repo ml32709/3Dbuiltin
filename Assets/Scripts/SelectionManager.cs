@@ -30,7 +30,7 @@ public class SelectionManager : MonoBehaviour
         {
             var selectionTransform = hit.transform;
  
-            if (selectionTransform.GetComponent<InteractableObject>())
+            if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange)
             {
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
             }
