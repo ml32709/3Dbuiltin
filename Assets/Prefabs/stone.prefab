@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaea81ab7aa60819c9e0d4e0c5382b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInRange: 0
   ItemName: Stone
+  playerInRange: 0
+  grabbable: 1

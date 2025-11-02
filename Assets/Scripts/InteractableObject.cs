@@ -4,8 +4,9 @@ using UnityEngine;
  
 public class InteractableObject : MonoBehaviour
 {
-    public bool playerInRange;
     public string ItemName;
+    public bool grabbable;
+    public bool playerInRange;
 
     public string GetItemName()
     {
@@ -14,7 +15,7 @@ public class InteractableObject : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
+        if(Input.GetKeyDown(KeyCode.E) && playerInRange && grabbable)
         {
             Debug.Log(ItemName + " added to inventory!");
             Destroy(gameObject);

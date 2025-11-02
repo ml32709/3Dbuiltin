@@ -1099,8 +1099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaea81ab7aa60819c9e0d4e0c5382b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInRange: 0
   ItemName: Large Rabbit
+  playerInRange: 0
+  grabbable: 0
 --- !u!135 &7753192154942397675
 SphereCollider:
   m_ObjectHideFlags: 0
