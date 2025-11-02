@@ -9,8 +9,6 @@ public class SelectionManager : MonoBehaviour
 {
     public static SelectionManager Instance { get; set; }
 
-    
-
     public bool onTarget;
     public GameObject interaction_Info_UI;
     TextMeshProUGUI interaction_text;
@@ -45,11 +43,12 @@ public class SelectionManager : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             var selectionTransform = hit.transform;
+            InteractableObject ourInteractable = selectionTransform.GetComponent<InteractableObject>();
  
-            if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange)
+            if (ourInteractable && ourInteractable.playerInRange)
             {
                 onTarget = true;
-                interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
+                interaction_text.text = ourInteractable.GetItemName();
             }
             else
             {
