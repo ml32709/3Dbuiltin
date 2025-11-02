@@ -15,7 +15,7 @@ public class InteractableObject : MonoBehaviour
 
     void Update()
     {
-        // NOTE: if multiple items satisfy all of these conditions at the same time and the player presses E, all items will be destroyed, not just one player looking at
+        // NOTE: onTarget will apply for every item in range, even if only looking at one
         if(Input.GetKeyDown(KeyCode.E) && SelectionManager.Instance.onTarget && playerInRange && grabbable)
         {
             Debug.Log(ItemName + " added to inventory!");
