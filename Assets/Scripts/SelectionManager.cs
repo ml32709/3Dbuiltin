@@ -7,17 +7,33 @@ using TMPro;
  
 public class SelectionManager : MonoBehaviour
 {
- 
+    public static SelectionManager Instance { get; set; }
+
+    
+
+    public bool onTarget;
     public GameObject interaction_Info_UI;
     TextMeshProUGUI interaction_text;
-    CanvasGroup canvasGroup;
- 
+
     private void Start()
     {
         interaction_text = interaction_Info_UI.GetComponent<TextMeshProUGUI>();
         interaction_text.text = "";
-    }  
- 
+        onTarget = false;
+    }
+
+    private void Awake()
+    {
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     void Update()
     {
         Vector3 screenCenter = new Vector3(Screen.width / 2f, Screen.height / 2f, 0f);
@@ -32,16 +48,19 @@ public class SelectionManager : MonoBehaviour
  
             if (selectionTransform.GetComponent<InteractableObject>() && selectionTransform.GetComponent<InteractableObject>().playerInRange)
             {
+                onTarget = true;
                 interaction_text.text = selectionTransform.GetComponent<InteractableObject>().GetItemName();
             }
             else
             {
+                onTarget = false;
                 interaction_text.text = "";
             }
  
         }
         else
         {
+            onTarget = false;
             interaction_text.text = "";
         }
     }
