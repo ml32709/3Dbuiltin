@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+using UnityEngine.InputSystem;
+
 public class InventorySystem : MonoBehaviour
 {
-   public static InventorySystem Instance { get; set; }
+    public static InventorySystem Instance { get; set; }
  
     public GameObject inventoryScreenUI;
     public bool isOpen;
@@ -29,19 +30,20 @@ public class InventorySystem : MonoBehaviour
  
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) && !isOpen)
+        if (Input.GetKeyDown(KeyCode.Tab) && !isOpen)
         {
  
-		      	Debug.Log("i is pressed");
+		    Debug.Log("inventory opened");
             inventoryScreenUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
             isOpen = true;
  
         }
-        else if (Input.GetKeyDown(KeyCode.I) && isOpen)
+        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             inventoryScreenUI.SetActive(false);
             isOpen = false;
         }
     }
- 
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 890667056672336421}
   - component: {fileID: 1075420152401587618}
   - component: {fileID: -2628503798522576595}
+  - component: {fileID: -817048438460070219}
   m_Layer: 5
   m_Name: stone_INV
   m_TagString: Untagged
@@ -88,3 +89,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28729b5d4868c85a88edde7786b4dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+--- !u!225 &-817048438460070219
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891115666297828667}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
