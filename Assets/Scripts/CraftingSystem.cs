@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,7 @@ public class CraftingSystem : MonoBehaviour
     // Requirement text
     TextMeshPro axeReq1, axeReq2;
 
-    bool isOpen;
+    public bool isOpen;
 
     // All Blueprint
 
@@ -45,7 +46,12 @@ public class CraftingSystem : MonoBehaviour
         toolsBTN = craftingScreenUI.transform.Find("ToolsButton").GetComponent<Button>();
         toolsBTN.onClick.AddListener(delegate { OpenToolsCategory(); });
 
+        // axe
+        axeReq1 = toolsScreenUI.transform.Find("Axe").transform.Find("req1").transform.GetComponent<TextMeshPro>();
+        axeReq2 = toolsScreenUI.transform.Find("Axe").transform.Find("req2").transform.GetComponent<TextMeshPro>();
 
+        craftAxe = toolsScreenUI.transform.Find("Axe").transform.Find("Button").transform.GetComponent<Button>();
+        craftAxe.onClick.AddListener(delegate { CraftAnyItem(); });
     }
 
     void OpenToolsCategory()
@@ -54,9 +60,15 @@ public class CraftingSystem : MonoBehaviour
         toolsScreenUI.SetActive(true);
     }
 
+    void CraftAnyItem()
+    {
+        // add item to inventory
+
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !isOpen)
+        if (Input.GetKeyDown(KeyCode.C) && !isOpen)
         {
             Debug.Log("crafting opened");
 
@@ -66,7 +78,7 @@ public class CraftingSystem : MonoBehaviour
             isOpen = true;
 
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && isOpen)
+        else if (Input.GetKeyDown(KeyCode.C) && isOpen)
         {
             Cursor.lockState = CursorLockMode.Locked;
 
