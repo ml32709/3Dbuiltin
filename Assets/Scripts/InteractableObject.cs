@@ -15,8 +15,7 @@ public class InteractableObject : MonoBehaviour
 
     void Update()
     {
-        // NOTE: onTarget will apply for every item in range, even if only looking at one
-        if(Input.GetKeyDown(KeyCode.E) && SelectionManager.Instance.onTarget && playerInRange && grabbable)
+        if(Input.GetKeyDown(KeyCode.E) && SelectionManager.Instance.onTarget && playerInRange && grabbable && SelectionManager.Instance.selectedObject == gameObject)
         {
             // if inventory is NOT full
             if (!InventorySystem.Instance.CheckIfFull())
