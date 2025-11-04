@@ -50,9 +50,10 @@ public class InventorySystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab) && !isOpen)
         {
-
             Debug.Log("inventory opened");
+
             inventoryScreenUI.SetActive(true);
+
             Cursor.lockState = CursorLockMode.None;
             isOpen = true;
 
@@ -60,7 +61,9 @@ public class InventorySystem : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Tab) && isOpen)
         {
             Cursor.lockState = CursorLockMode.Locked;
+
             inventoryScreenUI.SetActive(false);
+
             isOpen = false;
         }
     }
