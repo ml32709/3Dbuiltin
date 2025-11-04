@@ -18,8 +18,16 @@ public class InteractableObject : MonoBehaviour
         // NOTE: onTarget will apply for every item in range, even if only looking at one
         if(Input.GetKeyDown(KeyCode.E) && SelectionManager.Instance.onTarget && playerInRange && grabbable)
         {
-            Debug.Log(ItemName + " added to inventory!");
-            Destroy(gameObject);
+            // if inventory is NOT full
+            if (!InventorySystem.Instance.CheckIfFull())
+            {
+                InventorySystem.Instance.AddToInventory(ItemName);
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Inventory is full!");
+            }
         }
     }
 
@@ -29,7 +37,6 @@ public class InteractableObject : MonoBehaviour
         {
             playerInRange = true;
         }
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,7 +45,5 @@ public class InteractableObject : MonoBehaviour
         {
             playerInRange = false;
         }
-        
     }
-
 }
