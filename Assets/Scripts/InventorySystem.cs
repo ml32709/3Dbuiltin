@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework.Interfaces;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -60,7 +61,10 @@ public class InventorySystem : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Tab) && isOpen)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            if (!CraftingSystem.Instance.isOpen)
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+            }
 
             inventoryScreenUI.SetActive(false);
 
@@ -109,6 +113,40 @@ public class InventorySystem : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    public void RemoveItem(string nameToRemove, int amountToRemove)
+    {
+        int counter = amountToRemove;
+
+        for (var i = slotList.Count - 1; i >= 0; i--)
+        {
+            if (slotList[i].transform.childCount > 0)
+            {
+                if (slotList[i].transform.GetChild(0).name == nameToRemove + "(Clone)" && counter != 0)
+                {
+                    Destroy(slotList[i].transform.GetChild(0).gameObject);
+                    counter -= 1;
+                }
+            }
+        }
+    }
+
+    public void RecalculateList()
+    {
+        itemList.Clear();
+
+        foreach(GameObject slot in slotList)
+        {
+            if(slot.transform.childCount > 0)
+            {
+                string name = slot.transform.GetChild(0).name;
+                string str = "(Clone)";
+                string result = name.Replace(str, "");
+
+                itemList.Add(result);
+            }
         }
     }
 }
